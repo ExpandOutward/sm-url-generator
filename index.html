@@ -1,0 +1,84 @@
+<html>
+  
+  <head>
+    <title>SLP API Generator</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="favicon.ico"> 
+  </head>
+  
+  <body>
+  
+	<h1>SM URL Generator</h1>
+
+	<div id="menuArea">
+		<button id="smButton" onclick="selectSM()">SM API</button>
+		<button id="avButton" onclick="selectAPI()">Advanced View</button>
+	</div>
+
+	<div class="infoArea">
+
+	<div class = "dcSelect">
+      <label for="realmName">Realm Name: </label>
+	  <input type="text" id="realmName" name="realmName">
+	  <label for="dataCenter">Data Center:</label>
+	  <select name="dataCenter" id="dataCenter" class="dataCenter">
+	    <option value="US" selected="selected">US Data Center</option>
+	    <option value="EU">EU Data Center</option>
+	    <option value="CN">CN Data Center</option>
+	    <option value="KSA">KSA Data Center</option>
+	    <option value="KSAPRV">KSA PRV Data Center</option>
+	    <option value="UAE">UAE Data Center</option>
+	    <option value="prod3">Prod3 Data Center</option>
+	    <option value="AU">Austrailia Data Center</option>
+	    <option value="JP">Japan Data Center</option>
+	    <option value="IN">India Data Center</option>
+	  </select>
+	</div>
+
+    <div id="smAPI" class="toolArea">
+	
+	  <h2>SM API URL Generator</h2>
+	
+	  <label for="smID">SM Vendor ID: </label>
+	  <input type="text" id="smID" name="smID">
+	
+
+	<p>This tool is only applicable to SAP Ariba Support Engineers. It generates a URL that can be used in to 
+	   generate and push new payloads from SLP to a SAP system. Instructions for using this API can be found on 
+	   <a href="https://wiki.ariba.com/display/CSA/SLP+Internal+APIs+for+fixing+data" target="_blank"> 
+		this Wiki page</a>. The Wiki can only be accessed by internal SAP Ariba employees authenticated into the SAP
+		internal network.</p>
+	</div>
+
+	<div id="avWeb" class="toolArea">
+	  <h2>SM Advanced View URL Generator</h2>
+	
+	  <label for="wsID">Workspace ID: </label>
+	  <input type="text" id="wsID" name="wsID">
+
+	  <p>This tool is use to generate a URL to access Advanced View specifically for SLP Projects. You must 
+		be logged into the customer site respective to the URL before pasting the URL into your browser. Otherwise,
+		 you'll be taken to the login screen instead of the project.
+	  </p>
+	</div>
+
+	</div>
+
+	<div class = "actionButtons">	
+	  <button id="genURL" onclick="genURL()">Generate URL</button>
+	  <button id="copyURL" onclick="copyURL()">Copy URL</button>
+    </div>
+	
+	<h2>URL</h2>
+	  <input style="width: 99%" type="text" id="urlDisplay" name="urlDisplay"></input>
+
+  <p>This application was coded during my employment at SAP Ariba. It was previously hosted on my internal GitHub 
+	account which was made inaccessible upon my departure from the company. Note that I will not have access to
+	URLs for new data centers or any updated or changed URLs. If any updates are needed, you can email me at
+	<span style = "color: lime;">kenjsdev@pm.me</span> and I will update the application.</p>
+  
+  <script type="text/javascript" src="scripts.js"></script>
+  
+  </body>
+  
+</html>
