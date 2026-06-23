@@ -17,74 +17,93 @@
 
 	<div class="infoArea">
 
-	<div class = "dcSelect">
-      <label for="realmName">Realm Name: </label>
-	  <input type="text" id="realmName" name="realmName">
-	  <label for="dataCenter">Data Center:</label>
-	  <select name="dataCenter" id="dataCenter" class="dataCenter">
-	    <option value="US" selected="selected">US Data Center</option>
-	    <option value="EU">EU Data Center</option>
-	    <option value="CN">CN Data Center</option>
-	    <option value="KSA">KSA Data Center</option>
-	    <option value="KSAPRV">KSA PRV Data Center</option>
-	    <option value="UAE">UAE Data Center</option>
-	    <option value="prod3">Prod3 Data Center</option>
-	    <option value="AU">Austrailia Data Center</option>
-	    <option value="JP">Japan Data Center</option>
-	    <option value="IN">India Data Center</option>
-	  </select>
+	  <div class = "dcSelect">
+		<div class="dcChild1">
+        <label for="realmName">Realm Name: </label>
+	    <input type="text" id="realmName" name="realmName">
+	    <label for="dataCenter">Data Center:</label>
+	    <select name="dataCenter" id="dataCenter" class="dataCenter">
+	      <option value="US" selected="selected">US Data Center</option>
+	      <option value="EU">EU Data Center</option>
+	      <option value="CN">CN Data Center</option>
+	      <option value="KSA">KSA Data Center</option>
+	      <option value="KSAPRV">KSA PRV Data Center</option>
+	      <option value="UAE">UAE Data Center</option>
+	      <option value="prod3">Prod3 Data Center</option>
+	      <option value="AU">Austrailia Data Center</option>
+	      <option value="JP">Japan Data Center</option>
+	      <option value="IN">India Data Center</option>
+	    </select>
+		</div>
+		<div class="dcChild2">
+		<ul>
+		  <h2>Instructions</h2>
+		  <li>Select either <b>SM API</b> or <b>Advanced View</b>.	
+		  <li>Copy / Paste the customer's realm name into the <b>Realm Name</b> field and select
+		  the appropriate <b>Data Center</b>.</li>
+		  <li>Enter the SM Vendor ID of the Supplier or the Workspace ID of the project based on your 
+		  selection.</li>
+		  <li>Click Generate URL to generate the URL based on entered data and click Copy to copy the 
+			generated URL to your clipboard.</li>
+		<ul>
+		</div>
+
+	  </div>
+
+      <div id="smAPI" class="toolArea">
+	
+	    <h2>SM API URL Generator</h2>
+	
+	    <label for="smID">SM Vendor ID: </label>
+	    <input type="text" id="smID" name="smID">
+	
+
+	    <p>This tool generates a URL for SAP Ariba Support Engineers to use in an internal API. Additional requirements
+		   can be found in 
+	      <a href="https://wiki.ariba.com/display/CSA/SLP+Internal+APIs+for+fixing+data" target="_blank"> 
+		  this Wiki page</a>. The Wiki can only be accessed by internal SAP Ariba employees authenticated into the SAP
+		  internal network.</p>
+	   </div>
+
+	   <div id="avWeb" class="toolArea">
+	      <h2>SM Advanced View URL Generator</h2>
+	
+	      <label for="wsID">Workspace ID: </label>
+	      <input type="text" id="wsID" name="wsID">
+
+	      <p>This tool is use to generate a URL to access Advanced View specifically for SLP Projects. You must 
+		   be logged into the customer site respective to the URL before pasting the URL into your browser. Otherwise,
+		   you'll be taken to the login screen instead of the project.
+	      </p>
+	    </div>
+
 	</div>
 
-    <div id="smAPI" class="toolArea">
+	<div class="bottomDiv">
+
+	  <div class = "actionButtons">	
+	    <button id="genURL" onclick="genURL()">Generate URL</button>
+	    <button id="copyURL" onclick="copyURL()">Copy URL</button>
+      </div>
 	
-	  <h2>SM API URL Generator</h2>
-	
-	  <label for="smID">SM Vendor ID: </label>
-	  <input type="text" id="smID" name="smID">
-	
+	  <h2>URL</h2>
+	    <input style="width: 99%" type="text" id="urlDisplay" name="urlDisplay"></input>
 
-	<p>This tool is only applicable to SAP Ariba Support Engineers. It generates a URL that can be used in to 
-	   generate and push new payloads from SLP to a SAP system. Instructions for using this API can be found on 
-	   <a href="https://wiki.ariba.com/display/CSA/SLP+Internal+APIs+for+fixing+data" target="_blank"> 
-		this Wiki page</a>. The Wiki can only be accessed by internal SAP Ariba employees authenticated into the SAP
-		internal network.</p>
-	</div>
+    <h2>Usage</h2>
+    <p>This application is optimized for use by SAP Ariba Support Engineers. Feel free to download
+	 the source code and update, change, or host the application on your Internal GitHub page. No 
+	 credit is necessary.
+    </p>
 
-	<div id="avWeb" class="toolArea">
-	  <h2>SM Advanced View URL Generator</h2>
-	
-	  <label for="wsID">Workspace ID: </label>
-	  <input type="text" id="wsID" name="wsID">
+    <h2>Disclaimer</h2>
+    <p>I am no longer employed by SAP or SAP Ariba. Therefore, I cannot offer any feedback or guidance
+      on this application, nor can I speak for the company, its current policies or practices, or its 
+	  products. This is a tool that I coded while still employed that I downloaded and hosted offline 
+	  for my former teammates and to showcase my work for potential employers. All information contained
+	  in this application and the source code is publicly available.
+    </p>
 
-	  <p>This tool is use to generate a URL to access Advanced View specifically for SLP Projects. You must 
-		be logged into the customer site respective to the URL before pasting the URL into your browser. Otherwise,
-		 you'll be taken to the login screen instead of the project.
-	  </p>
-	</div>
-
-	</div>
-
-	<div class = "actionButtons">	
-	  <button id="genURL" onclick="genURL()">Generate URL</button>
-	  <button id="copyURL" onclick="copyURL()">Copy URL</button>
-    </div>
-	
-	<h2>URL</h2>
-	  <input style="width: 99%" type="text" id="urlDisplay" name="urlDisplay"></input>
-
-  <h2>Usage</h2>
-  <p>This application is optimized for use by SAP Ariba Support Engineers. Feel free to download
-	the source code and upate, change, or host the application on your Internal GitHub page. No 
-	credit is necessary.
-  </p>
-
-  <h2>Disclaimer</h2>
-  <p>I am no longer employed by SAP or SAP Ariba. Therefore, I cannot offer any feedback or guidance
-	on this application, nor can I speak for the company, its current policies or practices, or its 
-	products. This is a tool that I coded while still employed that I downloaded and hosted offline 
-	for my former teammates and to showcase my work for potential employers. All information contained
-	in this application and the source code is publicly available.
-  </p>
+  </div>
   
   <script type="text/javascript" src="scripts.js"></script>
   
