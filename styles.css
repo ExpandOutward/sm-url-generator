@@ -9,6 +9,10 @@ h1 {
   text-align: center;
 }
 
+b {
+  color: skyblue;
+}
+
 #menuArea {
   display: flex;
   justify-content: center;
